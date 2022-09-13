@@ -2,6 +2,9 @@
 
 ### Arquitecturas de Software
 
+#### Juan Esteban Cortés Pérez
+#### Andrés Felipe Mártinez
+
 
 
 #### API REST para la gestión de planos.
