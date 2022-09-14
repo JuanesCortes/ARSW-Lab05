@@ -115,7 +115,14 @@ Del anterior diagrama de componentes (de alto nivel), se desprendió el siguient
 El componente BlueprintsRESTAPI funcionará en un entorno concurrente. Es decir, atederá múltiples peticiones simultáneamente (con el stack de aplicaciones usado, dichas peticiones se atenderán por defecto a través múltiples de hilos). Dado lo anterior, debe hacer una revisión de su API (una vez funcione), e identificar:
 
 * Qué condiciones de carrera se podrían presentar?
+
+	Al generar multiples solicitudes podriamos tener problemas con la clase de in Memory ya que empiza a generar multiples hilos,
+	para buscar una solucion en esto tocaria ejecutar simultáneamente los hilos de forma segura
+
 * Cuales son las respectivas regiones críticas?
+
+	Como pensamos anteriormente el metodo in Memory puede ser la zona mas critica ya que puede generar muhco hilo generando un 
+	cunsumo muy alto de recursos
 
 Ajuste el código para suprimir las condiciones de carrera. Tengan en cuenta que simplemente sincronizar el acceso a las operaciones de persistencia/consulta DEGRADARÁ SIGNIFICATIVAMENTE el desempeño de API, por lo cual se deben buscar estrategias alternativas.
 
